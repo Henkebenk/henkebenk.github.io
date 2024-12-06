@@ -1,0 +1,101 @@
+@use "sass:color";
+@use 'variables.scss';
+
+[theme-mode="light"] {
+  --bg: #{variables.$light-bg};
+  --text: #{variables.$light-text};
+}
+
+[theme-mode="dark"] {
+  --bg: #{variables.$dark-bg};
+  --text: #{variables.$dark-text};
+}
+
+// Default to light theme
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: variables.$font-family;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+
+  &:hover {
+    color: adjust-color($color: #000000, $alpha: 0.8);
+  }
+}
+
+.filter-primary {
+  filter: invert(20%) sepia(95%) saturate(2781%) hue-rotate(240deg) brightness(94%) contrast(91%);
+}
+
+.anchor {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.anchor a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+
+.theme-toggle {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.main-section {
+  padding-top: 3rem;
+  position: relative;
+  // background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+  /* Fallback gradient */
+  /* Ensure gradients don't overflow */
+}
+
+.background-gradient {
+  filter: blur(3rem);
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%) rotate(30deg);
+  width: 100%;
+  max-width: 36.125rem;
+  height: 36.125rem;
+  background: linear-gradient(to top right, #ff80b5, #9089fc);
+  background: variables.$gradient-top;
+  opacity: 0.3;
+  clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);
+}
+
+.background-gradient-bottom {
+
+  position: absolute;
+  top: calc(100% - 13rem);
+  left: 50%;
+  transform: translateX(-50%) rotate(30deg);
+  width: 100%;
+  max-width: 36.125rem;
+  height: 36.125rem;
+  background: variables.$gradient-bottom;
+  opacity: 0.3;
+  clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);
+}
+
+.content {
+  text-align: center;
+  margin-top: 3rem;
+}
