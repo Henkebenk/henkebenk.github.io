@@ -6,7 +6,12 @@ export default {
     './components/**/*.{vue,js,ts}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        raleway: ['Raleway', 'sans-serif'],
+        jetbrains_mono: ['JetBrains+Mono', 'serif']
+      },
+    },
   },
   plugins: [],
 }
